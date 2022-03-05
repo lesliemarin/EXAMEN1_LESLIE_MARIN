@@ -1,0 +1,65 @@
+﻿@page
+@model WebApp.Pages.Institucion.GridModel
+@{
+}
+
+<style>
+    .color-a{
+        color: #fff;
+    }
+      .color-a:hover{
+        color: #fff;
+    }
+</style>
+
+<div class="container">
+
+                    <table id="GridView" class="table table-striped table table-hover table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Telefono</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model.GridList)
+                            { 
+                            <tr>
+                                <td>@item.Id_Institucion</td>
+                                <td>@item.Codigo</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Telefono</td>
+
+                                @if(@item.Estado==true){
+                                  <td>Activo</td>
+                                }else{
+                                  <td>Inactivo</td>
+                                }
+                                <td>
+                                    <button type="button" class="btn btn-danger" onclick="GridInstitucion.OnclickEliminar(@item.Id_Institucion)">
+                                    <i class='bx bxs-trash'></i>
+                                    </button>
+                                       <a type="button" class="btn btn-success" asp-page="/Institucion/Edit" asp-route-id="@item.Id_Institucion">
+                                    <i class='bx bxs-edit'></i>
+                                    </a>
+                                </td>
+                            </tr>                            
+                            }
+                        </tbody>
+                    </table>
+                                 <a type="button" class="btn btn-info color-a" asp-page="/Institucion/Create">
+                                    <span style="color: white;font-size: 1.4rem" class="iconify" data-icon="codicon:new-file"></span> Nueva Institucion</a>
+    </div>
+
+
+</div>
+@section  Scripts{ 
+
+    <script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+    </script>
+    <script defer src="~/App/Institucion/Grid.js"></script>
+}

@@ -1,0 +1,35 @@
+﻿@page
+@model WebApp.Pages.Institucion.CreateModel
+@{
+}
+
+<div class="container">
+<form class="row g-3" method="post">
+  <div class="col-md-6">
+    <label for="codigo" class="form-label">Codigo</label>
+    <input name="Codigo" type="text" class="form-control" id="codigo">
+  </div>
+  <div class="col-md-6">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input  name="Nombre" type="text" class="form-control" id="nombre">
+  </div>
+
+  <div class="col-12">
+    <label for="telefono" class="form-label">Telefono</label>
+    <input name="Telefono" type="text" class="form-control" id="telefono">
+  </div>
+<div class="col-md-12">
+    <label for="estado" class="form-label">Estado</label>
+    <select name="Estado" id="estado" class="form-select">
+      <option selected disable>-- Seleccione --</option>
+      <option value=1>Activo</option>
+        <option value=0>Inactivo</option>
+    </select>
+  </div>
+ 
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Crear</button>
+  </div>
+</form>
+
+</div>
